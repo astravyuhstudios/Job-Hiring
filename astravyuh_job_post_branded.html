@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Astravyuh Studios — We're Hiring</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #4a63e6;
+      --blue-light: #6a80f0;
+      --white: #ffffff;
+      --bg: #000000;
+      --card: #0c0c0c;
+      --border: #1c1c1c;
+      --text: #999;
+      --label: #3a3a3a;
+    }
+
+    body {
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+    }
+
+    .card {
+      max-width: 680px;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 52px 44px;
+      position: relative;
+      box-shadow: 0 0 80px rgba(74, 99, 230, 0.07), 0 0 120px rgba(0,0,0,0.8);
+      animation: fadeUp 0.7s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Top accent bar */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue) 0%, var(--blue-light) 60%, transparent 100%);
+      border-radius: 6px 6px 0 0;
+    }
+
+    /* Logo */
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .logo-wrap img {
+      width: 48px;
+      height: 48px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .logo-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      color: #444;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* Header */
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.35;
+      letter-spacing: -0.5px;
+      margin-bottom: 28px;
+    }
+
+    h1 span { color: var(--blue); }
+
+    /* Meta tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #161616;
+      margin: 28px 0;
+    }
+
+    /* Sections */
+    .section { margin-bottom: 28px; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--label);
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    ul { list-style: none; }
+
+    ul li {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text);
+      display: flex;
+      gap: 12px;
+      margin-bottom: 9px;
+    }
+
+    ul li .bullet { flex-shrink: 0; margin-top: 1px; }
+    .arrow { color: var(--white); }
+    .dot   { color: var(--blue); }
+    .star  { color: var(--blue-light); }
+
+    /* CTA box */
+    .cta {
+      background: #080808;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      border-radius: 2px;
+      padding: 22px 26px;
+      margin-bottom: 28px;
+    }
+
+    .cta-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .cta p { margin: 0; }
+
+    .cta a, .highlight {
+      color: var(--blue-light);
+      text-decoration: none;
+    }
+
+    .cta a:hover { text-decoration: underline; }
+
+    /* Footer */
+    .footer {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .footer-line1 {
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 4px;
+    }
+
+    .footer-line2 {
+      color: #2e2e2e;
+      margin-top: 6px;
+      letter-spacing: 3px;
+    }
+
+    @media (max-width: 520px) {
+      .card { padding: 36px 24px; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img src="Astravyuh Studios Logo.png" alt="Astravyuh Studios Logo" />
+      <div class="logo-text">
+        <span class="logo-name">Astravyuh Studios</span>
+        <span class="logo-sub">AI × Design × Automation</span>
+      </div>
+    </div>
+
+    <div class="eyebrow">Open Role &nbsp;·&nbsp; We're Hiring</div>
+
+    <h1>
+      Creative Technologist —<br>
+      <span>Design × Marketing × AI</span>
+    </h1>
+
+    <div class="tags">
+      <span class="tag">Fresher · 0–1 yr</span>
+      <span class="tag">Hybrid</span>
+      <span class="tag">₹15,000 / month</span>
+      <span class="tag">Joining: May 2026</span>
+    </div>
+
+    <hr />
+
+    <!-- About -->
+    <div class="section">
+      <div class="section-label">About Us</div>
+      <p>Astravyuh Studios is a Design × Tech agency building at the intersection of artificial intelligence and creative execution. We work on AI automation systems — intelligent bots, content generation pipelines, and workflow orchestration — for clients who want to move faster and think differently.</p>
+      <p>We're a lean, early-stage team. Everyone here builds, ships, and iterates.</p>
+    </div>
+
+    <!-- Role -->
+    <div class="section">
+      <div class="section-label">The Role</div>
+      <p>We're looking for one person who sits at the overlap of design sensibility, marketing instinct, and curiosity about AI. You'll own how Astravyuh looks and communicates externally — and get pulled into live client and product projects as we grow.</p>
+      <p>This isn't a siloed role. You'll be involved across the board.</p>
+    </div>
+
+    <!-- What you'll do -->
+    <div class="section">
+      <div class="section-label">What You'll Do</div>
+      <ul>
+        <li><span class="bullet arrow">→</span><span>Design brand assets, social content, and marketing collateral</span></li>
+        <li><span class="bullet arrow">→</span><span>Run and grow our social media presence (LinkedIn, Instagram, etc.)</span></li>
+        <li><span class="bullet arrow">→</span><span>Assist in building AI-powered content and automation workflows</span></li>
+        <li><span class="bullet arrow">→</span><span>Support client projects — design, decks, and deliverables</span></li>
+        <li><span class="bullet arrow">→</span><span>Experiment with AI tools: image gen, copy gen, workflow automation</span></li>
+        <li><span class="bullet arrow">→</span><span>Contribute to internal brand and product design as needed</span></li>
+      </ul>
+    </div>
+
+    <!-- Who you are -->
+    <div class="section">
+      <div class="section-label">Who You Are</div>
+      <ul>
+        <li><span class="bullet dot">·</span><span>Comfortable with design tools — Figma, Canva, Adobe, or equivalent</span></li>
+        <li><span class="bullet dot">·</span><span>Have a basic grasp of social media content strategy</span></li>
+        <li><span class="bullet dot">·</span><span>Genuinely curious about AI and emerging tech</span></li>
+        <li><span class="bullet dot">·</span><span>Willing to learn fast, take ownership, and wear multiple hats</span></li>
+        <li><span class="bullet dot">·</span><span>Portfolio or samples of past work — personal projects count</span></li>
+      </ul>
+    </div>
+
+    <!-- What you get -->
+    <div class="section">
+      <div class="section-label">What You Get</div>
+      <ul>
+        <li><span class="bullet star">✦</span><span>Direct mentorship from the Founder — no middlemen</span></li>
+        <li><span class="bullet star">✦</span><span>Hands-on exposure to real AI projects and client work</span></li>
+        <li><span class="bullet star">✦</span><span>Front-row seat to building an agency from the ground up</span></li>
+        <li><span class="bullet star">✦</span><span>Flexible hybrid setup</span></li>
+        <li><span class="bullet star">✦</span><span>Room to grow as the company scales</span></li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta-title">📩 How to Apply</div>
+      <p>DM us on LinkedIn or drop your portfolio + a short note on why this role to <a href="mailto:astravyuhstudios@gmail.com">astravyuhstudios@gmail.com</a>. No lengthy cover letters — just show us what you've built or created.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-line1">ASTRAVYUH Studios</div>
+      <div class="footer-line2">AI × Design × Automation</div>
+    </div>
+
+  </div>
+</body>
+</html>
